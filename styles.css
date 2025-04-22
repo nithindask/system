@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: var(--system-dark);
+    background-color: black;
     margin: 0;
     height: 100vh;
     color: var(--system-blue);
@@ -18,7 +18,7 @@ body {
 }
 
 .system-container {
-    width: 90%;
+    width: 80%;
     max-width: 800px;
     border: 2px solid var(--system-blue);
     border-radius: 5px;
@@ -54,7 +54,7 @@ body {
 
 .quest-container {
     flex-grow: 1;
-    margin: 20px 0;
+    margin: 20px;
 }
 
 .day-paragraph {
