@@ -8,11 +8,13 @@ function goFullscreen() {
 
 function showContent() {
     document.getElementById("login-screen").style.display = "none";
+    document.querySelector(".system-container").style.display = "flex";
+    
     const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const now = new Date();
     const todayName = dayNames[now.getDay()];
 
-    document.getElementById("day").textContent = todayName;
+    document.getElementById("day").textContent = todayName.toUpperCase();
 
     document.querySelectorAll(".day-paragraph").forEach(div => {
         div.style.display = "none";
@@ -39,15 +41,17 @@ function showContent() {
             localStorage.setItem("authenticated", "true");
         }
 
-        const tasks = document.getElementById("Tuesday").querySelectorAll("p");
-        tasks.forEach((p, index) => {
-            const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.checked = localStorage.getItem(`task-${index}`) === "true";
-            checkbox.addEventListener("change", () => {
-                localStorage.setItem(`task-${index}`, checkbox.checked);
+        const tasks = document.getElementById("Tuesday").querySelectorAll(".quest-item");
+        tasks.forEach((task, index) => {
+            const isCompleted = localStorage.getItem(`task-${index}`) === "true";
+            if (isCompleted) {
+                task.classList.add("completed");
+            }
+            
+            task.addEventListener("click", () => {
+                task.classList.toggle("completed");
+                localStorage.setItem(`task-${index}`, task.classList.contains("completed"));
             });
-            p.prepend(checkbox);
         });
     }
 
@@ -66,7 +70,9 @@ function authenticate() {
         localStorage.setItem("authenticated", "true");
         showContent();
     } else {
-        alert("Incorrect password! 😢");
+        alert("ACCESS DENIED\nIncorrect password!");
+        input.value = "";
+        input.focus();
     }
 }
 
@@ -80,6 +86,15 @@ if (localStorage.getItem("authenticated") === "true") {
 
 // Reset button functionality
 document.getElementById("reset-button").addEventListener("click", () => {
-    localStorage.clear();
-    location.reload(); // Reload the page so the user has to enter the password again
+    if (confirm("WARNING: This will reset all system data.\nAre you sure?")) {
+        localStorage.clear();
+        location.reload();
+    }
+});
+
+// Add some system-like sound effects (optional)
+document.addEventListener("click", () => {
+    const clickSound = new Audio("data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU..."); // Short beep sound
+    clickSound.volume = 0.2;
+    clickSound.play().catch(e => {});
 });
