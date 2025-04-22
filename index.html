@@ -6,62 +6,75 @@
     <title>System</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="day"></div>
-    <div id="time"></div>
-
-    <div class="day-paragraph" id="Sunday">
-        <p>Ahh Sunday, the perfect day to relax, recharge, and enjoy the calm before the storm.</p>
+    <div class="system-container">
+        <div class="system-header">
+            <div id="day" class="system-title"></div>
+            <div id="time" class="system-time"></div>
+        </div>
+        
+        <div class="quest-container">
+            <div class="day-paragraph" id="Sunday">
+                <p class="quest-text">Ahh Sunday, the perfect day to relax, recharge, and enjoy the calm before the storm.</p>
+            </div>
+            <div class="day-paragraph" id="Monday">
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">45s Plank</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">10 Push-ups</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Lunges</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Sit-ups</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">20 Jumping Jacks</span></p>
+            </div>
+            <div class="day-paragraph" id="Tuesday">
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">20 Squats</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Jumping Jacks</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">30s Plank</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">20 Crunches</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">10 Push-ups</span></p>
+            </div>
+            <div class="day-paragraph" id="Wednesday">
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Russian Twist</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">20s Wall Sit</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Sit-ups</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">5 Jumping Jacks</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">5 Lunges</span></p>
+            </div>
+            <div class="day-paragraph" id="Thursday">
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">45s Plank</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">10 Push-ups</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Lunges</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Sit-ups</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">20 Jumping Jacks</span></p>
+            </div>
+            <div class="day-paragraph" id="Friday">
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">20 Squats</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Jumping Jacks</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">30s Plank</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">20 Crunches</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">10 Push-ups</span></p>
+            </div>
+            <div class="day-paragraph" id="Saturday">
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Russian Twist</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">20s Wall Sit</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">15 Sit-ups</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">5 Jumping Jacks</span></p>
+                <p class="quest-item"><span class="quest-checkbox"></span><span class="quest-content">5 Lunges</span></p>
+            </div>
+        </div>
+        
+        <div class="system-footer">
+            <button id="reset-button" class="system-button">Reset System ⚠️</button>
+        </div>
     </div>
-    <div class="day-paragraph" id="Monday">
-        <p> 45s&nbsp; Plank</p>
-        <p> 10&nbsp; Push-ups</p>
-        <p> 15&nbsp; Lunges</p>
-        <p> 15&nbsp; Sit-ups</p>
-        <p> 20&nbsp; Jumping Jacks</p>
+    
+    <div id="login-screen" class="system-login">
+        <div class="login-container">
+            <div class="system-message">SYSTEM</div>
+            <input type="password" id="password-input" placeholder="Enter Access Code" class="system-input" />
+        </div>
     </div>
-    <div class="day-paragraph" id="Tuesday">
-        <p> 20&nbsp; Squats</p>
-        <p> 15&nbsp; Jumping Jacks</p>
-        <p> 30s&nbsp; Plank</p>
-        <p> 20&nbsp; Crunches</p>
-        <p> 10&nbsp; Push-ups</p>
-    </div>
-    <div class="day-paragraph" id="Wednesday">
-        <p> 15&nbsp; Russian Twist</p>
-        <p> 20s&nbsp; Wall Sit</p>
-        <p> 15&nbsp; Sit-ups</p>
-        <p> 5&nbsp; Jumping Jacks</p>
-        <p> 5&nbsp; Lunges</p>
-    </div>
-    <div class="day-paragraph" id="Thursday">
-        <p> 45s&nbsp; Plank</p>
-        <p> 10&nbsp; Push-ups</p>
-        <p> 15&nbsp; Lunges</p>
-        <p> 15&nbsp; Sit-ups</p>
-        <p> 20&nbsp; Jumping Jacks</p>
-    </div>
-    <div class="day-paragraph" id="Friday">
-        <p> 20&nbsp; Squats</p>
-        <p> 15&nbsp; Jumping Jacks</p>
-        <p> 30s&nbsp; Plank</p>
-        <p> 20&nbsp; Crunches</p>
-        <p> 10&nbsp; Push-ups</p>
-    </div>
-    <div class="day-paragraph" id="Saturday">
-        <p> 15&nbsp; Russian Twist</p>
-        <p> 20s&nbsp; Wall Sit</p>
-        <p> 15&nbsp; Sit-ups</p>
-        <p> 5&nbsp; Jumping Jacks</p>
-        <p> 5&nbsp; Lunges</p>
-    </div>
-    <div id="login-screen">
-        <input type="password" id="password-input" placeholder="Are You Worthy ?" />
-    </div><br><br><br><br><br>
-    <button id="reset-button">Reset&nbsp;&nbsp; ⚠️</button>
     
     <script src="script.js"></script>
 </body>
