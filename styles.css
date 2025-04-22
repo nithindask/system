@@ -1,0 +1,205 @@
+:root {
+    --system-blue: #00a8ff;
+    --system-dark: #0a0a1a;
+    --system-glow: 0 0 10px var(--system-blue);
+}
+
+body {
+    background-color: var(--system-dark);
+    margin: 0;
+    height: 100vh;
+    color: var(--system-blue);
+    font-family: 'Orbitron', 'Ubuntu Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.system-container {
+    width: 90%;
+    max-width: 800px;
+    border: 2px solid var(--system-blue);
+    border-radius: 5px;
+    box-shadow: var(--system-glow);
+    padding: 20px;
+    position: relative;
+    background-color: rgba(0, 10, 20, 0.8);
+    display: none;
+    flex-direction: column;
+    min-height: 70vh;
+}
+
+.system-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--system-blue);
+    margin-bottom: 20px;
+}
+
+.system-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: var(--system-glow);
+    letter-spacing: 1px;
+}
+
+.system-time {
+    font-size: 18px;
+    text-shadow: var(--system-glow);
+}
+
+.quest-container {
+    flex-grow: 1;
+    margin: 20px 0;
+}
+
+.day-paragraph {
+    display: none;
+}
+
+.quest-text {
+    font-size: 1.5em;
+    line-height: 1.6;
+    text-align: center;
+    margin: 40px 0;
+    text-shadow: var(--system-glow);
+}
+
+.quest-item {
+    font-size: 1.3em;
+    line-height: 2;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    position: relative;
+    text-shadow: 0 0 5px rgba(0, 168, 255, 0.7);
+}
+
+.quest-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--system-blue);
+    margin-right: 15px;
+    position: absolute;
+    left: 0;
+}
+
+.quest-checkbox:before {
+    content: "✓";
+    color: var(--system-blue);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.quest-item.completed .quest-checkbox:before {
+    opacity: 1;
+}
+
+.system-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--system-blue);
+}
+
+.system-button {
+    padding: 12px 25px;
+    background-color: transparent;
+    color: var(--system-blue);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    border: 1px solid var(--system-blue);
+    border-radius: 3px;
+    cursor: pointer;
+    text-shadow: var(--system-glow);
+    box-shadow: var(--system-glow);
+    transition: all 0.3s;
+}
+
+.system-button:hover {
+    background-color: var(--system-blue);
+    color: var(--system-dark);
+    box-shadow: 0 0 20px var(--system-blue);
+}
+
+#login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--system-dark);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-container {
+    text-align: center;
+    padding: 40px;
+    border: 2px solid var(--system-blue);
+    border-radius: 5px;
+    box-shadow: var(--system-glow);
+    max-width: 400px;
+    width: 80%;
+}
+
+.system-message {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-shadow: var(--system-glow);
+    letter-spacing: 2px;
+}
+
+.system-input {
+    padding: 12px 15px;
+    font-size: 16px;
+    width: 90%;
+    background: transparent;
+    border: 1px solid var(--system-blue);
+    border-radius: 3px;
+    color: var(--system-blue);
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 0 5px var(--system-blue);
+}
+
+.system-input::placeholder {
+    color: rgba(0, 168, 255, 0.5);
+}
+
+/* Animation effects */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.system-container, .login-container {
+    animation: flicker 5s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .system-title {
+        font-size: 20px;
+    }
+    
+    .system-time {
+        font-size: 16px;
+    }
+    
+    .quest-text, .quest-item {
+        font-size: 1.1em;
+    }
+}
