@@ -1,34 +1,38 @@
 :root {
-    --system-blue: #00a8ff;
+    --system-blue: #00f0ff;
+    --system-purple: #b300ff;
+    --system-red: #ff2d75;
+    --system-yellow: #ffcc00;
+    --system-green: #00ff88;
     --system-dark: #0a0a1a;
-    --system-glow: 0 0 10px var(--system-blue);
+    --system-darker: #050510;
+    --system-gray: #1a1a2e;
+    --system-glow: 0 0 15px var(--system-blue);
 }
 
 body {
-    background-color: black;
+    background-color: var(--system-darker);
     margin: 0;
     height: 100vh;
-    color: var(--system-blue);
-    font-family: 'Orbitron', 'Ubuntu Mono', monospace;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    position: relative;
 }
 
 .system-container {
     width: 80%;
     max-width: 800px;
     border: 2px solid var(--system-blue);
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: var(--system-glow);
-    padding: 20px;
-    position: relative;
-    background-color: rgba(0, 10, 20, 0.8);
+    padding: 25px;
+    background-color: rgba(10, 10, 25, 0.9);
     display: none;
     flex-direction: column;
-    min-height: 70vh;
+    min-height: 80vh;
 }
 
 .system-header {
@@ -36,62 +40,89 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 15px;
-    border-bottom: 1px solid var(--system-blue);
     margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.3);
 }
 
 .system-title {
-    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.system-title span {
+    font-family: 'Orbitron', sans-serif;
     font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--system-blue);
     text-shadow: var(--system-glow);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+}
+
+.day-display {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--system-purple);
 }
 
 .system-time {
-    font-size: 18px;
-    text-shadow: var(--system-glow);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: var(--system-yellow);
 }
 
 .quest-container {
     flex-grow: 1;
-    margin: 20px;
+    padding: 15px;
+    background-color: rgba(15, 15, 30, 0.5);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 240, 255, 0.2);
 }
 
-.day-paragraph {
-    display: none;
+.quest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
 }
 
-.quest-text {
-    font-size: 1.5em;
-    line-height: 1.6;
-    text-align: center;
-    margin: 40px 0;
-    text-shadow: var(--system-glow);
+.quest-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: var(--system-purple);
+}
+
+.quest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .quest-item {
-    font-size: 1.3em;
-    line-height: 2;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
-    padding-left: 30px;
-    position: relative;
-    text-shadow: 0 0 5px rgba(0, 168, 255, 0.7);
+    padding: 10px 15px;
+    background-color: rgba(26, 26, 46, 0.5);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 240, 255, 0.1);
+    cursor: pointer;
 }
 
 .quest-checkbox {
-    display: inline-block;
     width: 20px;
     height: 20px;
     border: 2px solid var(--system-blue);
     margin-right: 15px;
-    position: absolute;
-    left: 0;
+    border-radius: 3px;
+    position: relative;
 }
 
 .quest-checkbox:before {
     content: "✓";
-    color: var(--system-blue);
+    color: var(--system-green);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -103,32 +134,39 @@ body {
     opacity: 1;
 }
 
+.quest-item.completed .quest-content {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: line-through;
+}
+
 .system-footer {
-    margin-top: auto;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    border-top: 1px solid var(--system-blue);
+    border-top: 1px solid rgba(0, 240, 255, 0.3);
 }
 
 .system-button {
     padding: 12px 25px;
     background-color: transparent;
     color: var(--system-blue);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
     border: 1px solid var(--system-blue);
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
-    text-shadow: var(--system-glow);
-    box-shadow: var(--system-glow);
     transition: all 0.3s;
 }
 
+.system-button.danger {
+    color: var(--system-red);
+    border-color: var(--system-red);
+}
+
 .system-button:hover {
-    background-color: var(--system-blue);
-    color: var(--system-dark);
-    box-shadow: 0 0 20px var(--system-blue);
+    transform: translateY(-2px);
 }
 
 #login-screen {
@@ -137,69 +175,57 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--system-dark);
+    background-color: var(--system-darker);
     z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 .login-container {
     text-align: center;
     padding: 40px;
     border: 2px solid var(--system-blue);
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: var(--system-glow);
     max-width: 400px;
-    width: 80%;
+    width: 60%;
 }
 
-.system-message {
-    font-size: 24px;
+.system-logo {
     margin-bottom: 30px;
-    text-shadow: var(--system-glow);
-    letter-spacing: 2px;
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--system-blue);
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--system-blue);
+    margin-top: 15px;
+    letter-spacing: 5px;
 }
 
 .system-input {
-    padding: 12px 15px;
-    font-size: 16px;
+    padding: 15px;
+    font-size: 1rem;
     width: 90%;
-    background: transparent;
+    background: rgba(15, 15, 30, 0.7);
     border: 1px solid var(--system-blue);
-    border-radius: 3px;
-    color: var(--system-blue);
+    border-radius: 5px;
+    color: white;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
-    box-shadow: 0 0 5px var(--system-blue);
 }
 
-.system-input::placeholder {
-    color: rgba(0, 168, 255, 0.5);
-}
-
-/* Animation effects */
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-.system-container, .login-container {
-    animation: flicker 5s infinite;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .system-title {
-        font-size: 20px;
-    }
-    
-    .system-time {
-        font-size: 16px;
-    }
-    
-    .quest-text, .quest-item {
-        font-size: 1.1em;
-    }
+.day-paragraph {
+    display: none;
 }
